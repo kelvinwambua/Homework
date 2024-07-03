@@ -21,15 +21,15 @@ int main() {
 double compute() {
     double math, eng, kisw, sci, ssr, mean;
     char* grade;
-    printf("Enter the marks for Math: ");
+    printf("\nEnter the marks for Math: ");
     math = input();
-    printf("Enter the marks for English: ");
+    printf("\nEnter the marks for English: ");
     eng = input();
-    printf("Enter the marks for Kiswahili: ");
+    printf("\nEnter the marks for Kiswahili: ");
     kisw = input();
-    printf("Enter the marks for Science: ");
+    printf("\nEnter the marks for Science: ");
     sci = input();
-    printf("Enter the marks for Social Studies and Religious Education: ");
+    printf("\nEnter the marks for Social Studies and Religious Education: ");
     ssr = input();
     mean = get_mean(math, eng, kisw, sci, ssr);
     grade = get_grade(mean);
@@ -41,7 +41,7 @@ double input() {
     double mark;
     scanf("%lf", &mark);
     while (mark < 0 || mark > 100) {
-        printf("Invalid mark. Please enter a mark between 0 and 100\n");
+        printf("\nInvalid mark. Please enter a mark between 0 and 100\n");
         scanf("%lf", &mark);
     }
     return mark;
@@ -52,13 +52,13 @@ double get_mean(double math, double eng, double kisw, double sci, double ssr) {
 }
 
 char* get_grade(double mean) {
-    if (mean >= 80 && mean<=100) {
+    if (mean >= 80 && mean <= 100) {
         return "A";
     } else if (mean >= 75 && mean < 80) {
         return "A-";
     } else if (mean >= 70 && mean < 75) {
         return "B+";
-    } else if (mean >= 65 && mean < 70 ) {
+    } else if (mean >= 65 && mean < 70) {
         return "B";
     } else if (mean >= 60 && mean < 65) {
         return "B-";
@@ -74,11 +74,11 @@ char* get_grade(double mean) {
         return "D";
     } else if (mean >= 30 && mean < 35) {
         return "D-";
-    } else if (mean >= 25 && mean < 30) {
+    } else {
         return "E";
     }
 }
 
 void show(double mean, char* grade) {
-    printf("The mean score is %.3lf and the grade is %s\n", mean, grade);
+    printf("\nThe mean score is %.3lf and the grade is %s\n", mean, grade);
 }
