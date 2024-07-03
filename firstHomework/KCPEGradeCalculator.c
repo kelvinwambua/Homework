@@ -52,29 +52,29 @@ double get_mean(double math, double eng, double kisw, double sci, double ssr) {
 }
 
 char* get_grade(double mean) {
-    if (mean >= 80) {
+    if (mean >= 80 && mean<=100) {
         return "A";
-    } else if (mean >= 75) {
+    } else if (mean >= 75 && mean < 80) {
         return "A-";
-    } else if (mean >= 70) {
+    } else if (mean >= 70 && mean < 75) {
         return "B+";
-    } else if (mean >= 65) {
+    } else if (mean >= 65 && mean < 70 ) {
         return "B";
-    } else if (mean >= 60) {
+    } else if (mean >= 60 && mean < 65) {
         return "B-";
-    } else if (mean >= 55) {
+    } else if (mean >= 55 && mean < 60) {
         return "C+";
-    } else if (mean >= 50) {
+    } else if (mean >= 50 && mean < 55) {
         return "C";
-    } else if (mean >= 45) {
+    } else if (mean >= 45 && mean < 50) {
         return "C-";
-    } else if (mean >= 40) {
+    } else if (mean >= 40 && mean < 45) {
         return "D+";
-    } else if (mean >= 35) {
+    } else if (mean >= 35 && mean < 40) {
         return "D";
-    } else if (mean >= 30) {
+    } else if (mean >= 30 && mean < 35) {
         return "D-";
-    } else {
+    } else if (mean >= 25 && mean < 30) {
         return "E";
     }
 }
