@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>  
 
 double compute();
 double input();
@@ -8,8 +9,14 @@ void show(double mean, char *grade);
 
 int main() {
     int count, number;
+    char c;
     printf("\nHow many students do you want to enter their Math, English, Kiswahili, SSRE, Science: ");
-    scanf("%d", &number);
+    
+    while (scanf("%d", &number) != 1 || number < 1) {
+        while ((c = getchar()) != '\n' && c != EOF);  
+        printf("\nInvalid input. Please enter a positive number: ");
+    }
+    
     for (count = 0; count < number; count++) {
         compute();
     }
@@ -17,7 +24,6 @@ int main() {
     getchar();
     return 0;
 }
-
 double compute() {
     double math, eng, kisw, sci, ssr, mean;
     char* grade;
@@ -37,19 +43,9 @@ double compute() {
     return 0;
 }
 
-double input() {
-    double mark;
-    scanf("%lf", &mark);
-    while (mark < 0 || mark > 100) {
-        printf("\nInvalid mark. Please enter a mark between 0 and 100\n");
-        scanf("%lf", &mark);
-    }
-    return mark;
-}
 
-double get_mean(double math, double eng, double kisw, double sci, double ssr) {
-    return (math + eng + kisw + sci + ssr) / 5;
-}
+
+
 
 char* get_grade(double mean) {
     if (mean >= 80 && mean <= 100) {
@@ -81,4 +77,17 @@ char* get_grade(double mean) {
 
 void show(double mean, char* grade) {
     printf("\nThe mean score is %.3lf and the grade is %s\n", mean, grade);
+}
+double get_mean(double math, double eng, double kisw, double sci, double ssr) {
+    return (math + eng + kisw + sci + ssr) / 5;
+}
+double input() {
+    double mark;
+    char c;
+    
+    while (scanf("%lf", &mark) != 1 || mark < 0 || mark > 100) {
+        while ((c = getchar()) != '\n' && c != EOF); 
+        printf("\nInvalid mark. Please enter a mark between 0 and 100: ");
+    }
+    return mark;
 }
