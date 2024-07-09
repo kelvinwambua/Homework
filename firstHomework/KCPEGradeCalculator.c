@@ -90,4 +90,4 @@ double input() {
         printf("\nInvalid mark. Please enter a mark between 0 and 100: ");
     }
     return mark;
-}
+} 
